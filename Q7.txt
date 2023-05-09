@@ -1,0 +1,11 @@
+likes_to_eat(X,Y):-cat(X),fish(Y). 
+cat(X):-calico(X). 
+fish(Y):- tuna(Y). 
+tuna(charlie). 
+tuna(herb). 
+calico(pussy).  
+
+Output
+
+likes_to_eat(pussy, What).
+

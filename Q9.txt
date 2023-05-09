@@ -1,0 +1,27 @@
+tree(M):-M=tree(5,tree(4,tree(2,nil,nil),tree(10,nil,nil)),tree(3,nil,nil)). 
+preorder(tree(X,L,R),Xs) :-     
+preorder(L,Ls),     
+preorder(R,Rs),     
+append([X|Ls],Rs,Xs).     
+preorder(_,[]).  
+
+inorder(nil, []). 
+inorder(tree(X, Left, Right), R) :-    
+inorder(Left,R1),    
+inorder(Right,R2),    
+append(R1,[X|R2],R).  
+
+postorder(tree(X, L, R), Xs):-   
+postorder(L, Ls),   
+postorder(R, Rs),   
+append(Ls, Rs, Xs1),   
+append(Xs1, [X], Xs).   
+postorder(_, []).
+
+OUTPUT
+
+tree(T), preorder(T, Xs).
+
+tree(T), inorder(T, Xs).
+
+tree(T), postorder(T, Xs).

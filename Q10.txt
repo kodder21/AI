@@ -1,0 +1,11 @@
+% Define a binary tree
+b_tree(5, b_tree(3, b_tree(1, nil, nil), b_tree(4, nil, nil)), b_tree(7, b_tree(6, nil, nil), b_tree(8, nil, nil))).
+
+% Check if X belongs to the binary tree
+mem_btree(X, b_tree(X, _, _)) :- !.
+mem_btree(X, b_tree(Y, L, _)) :- X < Y, mem_btree(X, L).
+mem_btree(X, b_tree(Y, _, R)) :- X > Y, mem_btree(X, R).
+
+Output
+
+mem_btree(X, L)
